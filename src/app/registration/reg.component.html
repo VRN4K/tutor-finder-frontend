@@ -1,0 +1,52 @@
+﻿<div class="intro" id="intro">
+    <div class="container">
+        <div class="reg-box">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="reg__textbox">
+                    <label for="firstname">Имя</label>
+                    <input id="firstname" type="text" formControlName="firstname"  [ngClass]="{ 'is-invalid': submitted && form.firstname?.errors }" />
+                    <div *ngIf="submitted && form.firstname.errors" class="invalid-feedback">
+                        <div *ngIf="form.firstname.errors.required">Поле обязательно к заполнению</div>
+                    </div>
+                </div>
+
+                <div class="reg__textbox">
+                    <label for="lastname">Фамилия</label>
+                    <input id="lastname" type="text" formControlName="lastname"  [ngClass]="{ 'is-invalid': submitted && form.lastname?.errors }" />
+                    <div *ngIf="submitted && form.lastname.errors" class="invalid-feedback">
+                        <div *ngIf="form.lastname.errors.required">Поле обязательно к заполнению</div>
+                    </div>
+                </div>
+
+                <div class="reg__textbox">
+                    <label for="patronymic">Отчество</label>
+                    <input id="patronymic" type="text" formControlName="patronymic"  [ngClass]="{ 'is-invalid': submitted && form.patronymic?.errors }" />
+                    <div *ngIf="submitted && form.patronymic.errors" class="invalid-feedback">
+                        <div *ngIf="form.patronymic.errors.required">Поле обязательно к заполнению</div>
+                    </div>
+                </div>
+
+                <div class="reg__textbox">
+                    <label for="email">Почта</label>
+                    <input id="email" type="text" formControlName="email"  [ngClass]="{ 'is-invalid': submitted && form.email?.errors }" />
+                    <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                        <div *ngIf="form.email.errors.required">Поле обязательно к заполнению</div>
+                    </div>
+                </div>
+                <div class="reg__textbox">
+                    <label for="password">Пароль</label>
+                    <input id="password" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && form.password.errors }" />
+                    <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+                        <div *ngIf="form.password.errors.required">Поле обязательно к заполнению</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button [disabled]="loading" class="reg__btn">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Зарегистрироваться
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
