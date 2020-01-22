@@ -6,6 +6,8 @@ import {User} from "@/_models";
 import {AuthenticationService} from "@/_services";
 import {BookService} from "@/_services/book.service";
 
+import "./book.component.css";
+
 @Component({ templateUrl: 'books.component.html' })
 export class BookComponent implements OnInit {
   bookForm = this.fb.group({

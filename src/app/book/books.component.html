@@ -1,54 +1,55 @@
-<form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="">
-    <div class="form-group row">
-        <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
-        <div class="col-sm-10">
-            <input type="text" formControlName="name"  class="form-control form-control-sm" id="name" placeholder="name">
-        </div>
+<div class="intro" id="intro">
+    <div class="container">
+        <div class="features">
+            <div class="features__item">
+                <div class="card">
+    <div class="box">
+        <h2>Вероника Капитанова<br><span>Математика</span></h2>
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et.</p>
+            <h2>Телефон:<br><span>89230399699</span></h2>
+            <h2>Почта:<br><span>brigmore.w@mail.ru</span></h2>
     </div>
-    <div class="form-group row">
-        <label for="pages_count" class="col-sm-2 col-form-label col-form-label-sm">Pages count</label>
-        <div class="col-sm-10">
-            <input type="number" formControlName="pages_count" class="form-control form-control-sm" id="pages_count"
-                   placeholder="pages_count">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="author" class="col-sm-2 col-form-label col-form-label-sm">Author</label>
-        <div class="col-sm-10">
-            <input type="text" formControlName="author" class="form-control form-control-sm" id="author" placeholder="author">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="publisher" class="col-sm-2 col-form-label col-form-label-sm">Publisher</label>
-        <div class="col-sm-10">
-            <input type="text" formControlName="publisher" class="form-control form-control-sm" id="publisher" placeholder="publisher">
-        </div>
-    </div>
-
-    <button type="submit" [disabled]="!bookForm.valid" class="btn btn-primary">Submit</button>
-</form>
-
-<div class="container">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Pages Count</th>
-            <th scope="col">Author</th>
-            <th scope="col">Publisher</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let book of books">
-            <th scope="row">{{ book.id }}</th>
-            <td>{{ book.name }}</td>
-            <td>{{ book.pages_count }}</td>
-            <td>{{ book.author }}</td>
-            <td>{{ book.publisher }}</td>
-            <button (click)="deleteBook('book.id')" class="btn btn-primary">Delete</button>
-        </tr>
-        </tbody>
-    </table>
 </div>
+            </div>
+
+            <div class="features__item">
+        <div class="card">
+            <div class="box">
+                <h2>Вероника Капитанова<br><span>Математика</span></h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et.</p>
+                <h2>Телефон:<br><span>89230399699</span></h2>
+                <h2>Почта:<br><span>brigmore.w@mail.ru</span></h2>
+            </div>
+        </div>
+
+            </div>
+
+            <div class="features__item">
+        <div class="card">
+            <div class="box">
+                <h2>Вероника Капитанова<br><span>Математика</span></h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et.</p>
+                <h2>Телефон:<br><span>89230399699</span></h2>
+                <h2>Почта:<br><span>brigmore.w@mail.ru</span></h2>
+            </div>
+        </div>
+
+
+            </div>
+
+            <div class="features__item">
+        <div class="card">
+            <div class="box">
+                <h2>Вероника Капитанова<br><span>Математика</span></h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et.</p>
+                <h2>Телефон:<br><span>89230399699</span></h2>
+                <h2>Почта:<br><span>brigmore.w@mail.ru</span></h2>
+            </div>
+        </div>
+    </div>
+    </div>
+</div></div>

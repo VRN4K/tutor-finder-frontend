@@ -7,12 +7,11 @@
             </div>
             <nav class="nav" id="nav">
                 <a class="nav__link" href="/home">Главная страница</a>
-                <a class="nav__link" href="#" data-scroll="#works">Works</a>
+                <a class="nav__link" href="/book">Book</a>
                 <a class="nav__link" href="#" data-scroll="#team">Our Team</a>
                 <a class="nav__link"  *ngIf="currentUser" (click)="logout()">Выйти</a>
                 <a class="nav__link" *ngIf="!currentUser" href="/registration" >Регистрация</a>
                 <a class="nav__link"  *ngIf="!currentUser" href="/login">Войти</a>
-
             </nav>
         </div>
     </div>
