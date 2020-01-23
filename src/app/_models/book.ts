@@ -1,7 +1,9 @@
 export class Book {
     id: number;
-    name: string;
-    pages_count: number;
-    author: string;
-    publisher: string;
+    firs_name: string;
+    last_name: number;
+    patronymic_name: string;
+    phone: string;
+    subject: string;
+    about: string;
 }

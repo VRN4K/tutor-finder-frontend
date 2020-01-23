@@ -1,55 +1,27 @@
-<div class="intro" id="intro">
-    <div class="container">
-        <div class="features">
-            <div class="features__item">
-                <div class="card">
-    <div class="box">
-        <h2>Вероника Капитанова<br><span>Математика</span></h2>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et.</p>
-            <h2>Телефон:<br><span>89230399699</span></h2>
-            <h2>Почта:<br><span>brigmore.w@mail.ru</span></h2>
-    </div>
+<div class="book-intro">
 </div>
-            </div>
-
-            <div class="features__item">
-        <div class="card">
-            <div class="box">
-                <h2>Вероника Капитанова<br><span>Математика</span></h2>
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et.</p>
-                <h2>Телефон:<br><span>89230399699</span></h2>
-                <h2>Почта:<br><span>brigmore.w@mail.ru</span></h2>
-            </div>
-        </div>
-
-            </div>
-
-            <div class="features__item">
-        <div class="card">
-            <div class="box">
-                <h2>Вероника Капитанова<br><span>Математика</span></h2>
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et.</p>
-                <h2>Телефон:<br><span>89230399699</span></h2>
-                <h2>Почта:<br><span>brigmore.w@mail.ru</span></h2>
-            </div>
-        </div>
-
-
-            </div>
-
-            <div class="features__item">
-        <div class="card">
-            <div class="box">
-                <h2>Вероника Капитанова<br><span>Математика</span></h2>
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et.</p>
-                <h2>Телефон:<br><span>89230399699</span></h2>
-                <h2>Почта:<br><span>brigmore.w@mail.ru</span></h2>
-            </div>
-        </div>
-    </div>
-    </div>
-</div></div>
+<div class="container features">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Отчество</th>
+            <th scope="col">Телефон</th>
+            <th scope="col">Предмет</th>
+            <th scope="col">О себе</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{ book.first_name }}</td>
+            <td>{{ book.last_name }}</td>
+            <td>{{ book.patronymic_name}}</td>
+            <td>{{ book.phone }}</td>
+            <td>{{ book.subject }}</td>
+            <td>{{ book.about }}</td>
+            <a class="nav__link btn-del"  *ngIf="currentUser" (click)="deleteBook(book.id)">Удалить</a>
+        </tr>
+        </tbody>
+    </table>
+</div>

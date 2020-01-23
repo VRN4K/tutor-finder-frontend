@@ -7,10 +7,9 @@
             </div>
             <nav class="nav" id="nav">
                 <a class="nav__link" href="/home">Главная страница</a>
-                <a class="nav__link" href="/book">Book</a>
-                <a class="nav__link" href="#" data-scroll="#team">Our Team</a>
+                <a class="nav__link" href="/book">Списки репетиторов</a>
                 <a class="nav__link"  *ngIf="currentUser" (click)="logout()">Выйти</a>
-                <a class="nav__link" *ngIf="!currentUser" href="/registration" >Регистрация</a>
+                <a class="nav__link" *ngIf="!currentUser" href="/registration">Оставить заявку</a>
                 <a class="nav__link"  *ngIf="!currentUser" href="/login">Войти</a>
             </nav>
         </div>
@@ -25,6 +24,15 @@
 <footer class="footer">
     <div class="container">
         <div class="footer__inner">
+
+            <div class="footer__block">
+                <h4 class="footer__title">Разработано</h4>
+                <address class="footer__address">
+                    <div>В разработке данного проекта принимали участие студенты Омского Государственного Технического Университета :
+                        <span>Капитановой Вероникой</span> и <span>Якубовой Дарьей</span></div>
+                </address>
+            </div>
+
             <div class="footer__block">
                 <h4 class="footer__title">Адрес</h4>
                 <address class="footer__address">
@@ -34,31 +42,10 @@
             </div>
 
             <div class="footer__block">
-                <h4 class="footer__title">ОМГТУ в соц. сетях</h4>
-                <div class="social  social--footer">
-                    <a class="social__item" href="#" target="_blank">
-                        <svg class="social__icon">
-                            <use xlink:href="#facebook"></use>
-                        </svg>
-                    </a>
-                    <a class="social__item" href="#" target="_blank">
-                        <svg class="social__icon">
-                            <use xlink:href="#twitter"></use>
-                        </svg>
-                    </a>
-                    <a class="social__item" href="#" target="_blank">
-                        <svg class="social__icon">
-                            <use xlink:href="#linkedin"></use>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <div class="footer__block">
                 <h4 class="footer__title">О проекте</h4>
                 <div class="footer__text">
                     <p>Данный сервис разработан в учебных целях для получения практических навыков студентами кафедры АСОИУ Омского Технического Университета</p>
-                </div>
+                   </div>
             </div>
         </div><!-- /.footer__inner -->
 
@@ -67,7 +54,7 @@
     <div class="copyright">
         <div class="container">
             <div class="copyright__text">
-                <div>© 2019-2020, Сервис подбора репетиторов REPETIT.RU</div>
+                <div>© 2019-2020, Сервис подбора репетиторов E-REPETITOR.RU</div>
                 <div><a class="nav__link" href="https://omgtu.ru/general_information/faculties/faculty_of_information_technology_and_computer_systems/department_of_automated_systems_of_information_processing_and_management/"><span>Кафедра «Автоматизированные системы обработки информации и управления» (АСОИУ)</span></a></div>
             </div>
         </div>

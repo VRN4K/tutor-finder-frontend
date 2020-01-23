@@ -5,16 +5,20 @@ import { FormBuilder, Validators } from '@angular/forms';
 import {User} from "@/_models";
 import {AuthenticationService} from "@/_services";
 import {BookService} from "@/_services/book.service";
+import {Router} from "@angular/router";
 
 import "./book.component.css";
 
 @Component({ templateUrl: 'books.component.html' })
 export class BookComponent implements OnInit {
   bookForm = this.fb.group({
-    name: [ '', Validators.required ],
-    pages_count: [ '', Validators.required ],
-    author: [ '', Validators.required ],
-    publisher : [ '', Validators.required ]
+    first_name: [ '', Validators.required ],
+    last_name: [ '', Validators.required ],
+    patronymic_name: [ '', Validators.required ],
+    phone : [ '', Validators.required ],
+    subject: [ '', Validators.required ],
+    about: [ '', Validators.required ]
+
   });
 
   public books = [];
@@ -23,6 +27,7 @@ export class BookComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private bookService: BookService,
+    private router: Router,
     private fb: FormBuilder
   ) {
     this.currentUser = this.authenticationService.currentUserValue;
@@ -41,15 +46,18 @@ export class BookComponent implements OnInit {
 
   deleteBook(id: number) {
     this.bookService.delete(id)
-      .pipe(first());
+      .subscribe(first());
+       this.router.navigate(['/']);
   }
 
   onSubmit() {
     const book = {
-      name: this.bookForm.controls.name.value,
-      pages_count: this.bookForm.controls.pages_count.value,
-      author: this.bookForm.controls.author.value,
-      publisher: this.bookForm.controls.publisher.value
+      first_name: this.bookForm.controls.first_name.value,
+      last_name: this.bookForm.controls.last_name.value,
+      patronymic_name: this.bookForm.controls.patronymic_name.value,
+      phone: this.bookForm.controls.phone.value,
+       subject: this.bookForm.controls.subject.value,
+        about: this.bookForm.controls.about.value
     };
 
     this.bookService.addBook(book)

@@ -6,9 +6,8 @@ body {
     color: #6c7279;
     -webkit-font-smoothing: antialiased;
 
-    background-color: #fff;
+    background-color: #c6cacc;
 }
-
 *,
 *:before,
 *:after {
@@ -308,7 +307,6 @@ p {
 }
 
 
-
 /* Copyright
 ===================*/
 
@@ -374,8 +372,6 @@ p {
     bottom: -8px;
 }
 
-
-
 /* Media
 ===================*/
 
@@ -428,7 +424,6 @@ p {
     /* Team */
     .team__item {
         width: 50%;
-
         text-align: center;
     }
 

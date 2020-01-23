@@ -1,66 +1,73 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import "./reg.component.css";
+import { FormBuilder, Validators } from '@angular/forms';
 
-import { AlertService, AuthenticationService } from '@/_services';
+import {User} from "@/_models";
+import {AuthenticationService} from "@/_services";
+import {BookService} from "@/_services/book.service";
+
+import "./reg.component.css";
+import {Router} from "@angular/router";
 
 @Component({ templateUrl: 'reg.component.html' })
 export class RegComponent implements OnInit {
-    loginForm: FormGroup;
-    loading = false;
-    submitted = false;
-    returnUrl: string;
+    bookForm = this.fb.group({
+        first_name: [ '', Validators.required ],
+        last_name: [ '', Validators.required ],
+        patronymic_name: [ '', Validators.required ],
+        phone: [ '', Validators.required ],
+        subject: [ '', Validators.required ],
+        about : [ '', Validators.required ]
+    });
+
+    public books = [];
+    currentUser: User;
 
     constructor(
-        private formBuilder: FormBuilder,
-        private route: ActivatedRoute,
-        private router: Router,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService
+        private bookService: BookService,
+        private router: Router,
+        private fb: FormBuilder
     ) {
-        // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/']);
-        }
+        this.currentUser = this.authenticationService.currentUserValue;
     }
 
     ngOnInit() {
-        this.loginForm = this.formBuilder.group({
-            email: ['', Validators.required],
-            password: ['', Validators.required]
-        });
-
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    }
-
-    // convenience getter for easy access to form fields
-    get form() { return this.loginForm.controls; }
-
-    onSubmit() {
-        this.submitted = true;
-
-        // reset alerts on submit
-        this.alertService.clear();
-
-        // stop here if form is invalid
-        if (this.loginForm.invalid) {
-            return;
-        }
-
-        this.loading = true;
-        this.authenticationService.login(this.form.email.value, this.form.password.value)
-            .pipe(first())
+        this.bookService.getAll()
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+                    this.books = data;
                 },
                 error => {
                     console.log(error);
-                    this.alertService.error(error.message);
-                    this.loading = false;
                 });
+    }
+
+    deleteBook(id: number) {
+        this.bookService.delete(id)
+            .pipe(first());
+    }
+
+    onSubmit() {
+        const book = {
+            first_name: this.bookForm.controls.first_name.value,
+            last_name: this.bookForm.controls.last_name.value,
+            patronymic_name: this.bookForm.controls.patronymic_name.value,
+            phone: this.bookForm.controls.phone.value,
+            subject: this.bookForm.controls.subject.value,
+            about: this.bookForm.controls.about.value
+        };
+
+        this.bookService.addBook(book)
+            .subscribe(
+                data => {
+                    this.router.navigate(['/book']);
+                    this.books.push(data);
+
+                },
+                error => {
+                    console.log(error);
+                });
+
     }
 }
